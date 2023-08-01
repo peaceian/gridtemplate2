@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-template練習2</title>
+
+
+<style>
+    div {text-align: center;border: solid black 3px;padding:10px;}
+    .container {display:grid;grid-template-columns: 1fr 2fr 5fr 2fr 1fr;grid-template-rows: auto;grid-column-gap: 10px;grid-row-gap: 10px;}
+    .header {grid-area:1/1/2/6;background-color: aquamarine;}
+    .theme {grid-area:2/2/6/5;background-color:burlywood;height: 600px;}
+    .sidebar {grid-area:2/1/6/2;background-color: dodgerblue;}
+    .sidebar2 {grid-area:6/6/2/5;background-color: darkcyan;}
+    .image {grid-area:6/1/8/4;background-color: wheat;}
+    .post {grid-area:6/4/8/6;background-color: deepskyblue;}
+    .content {grid-area:8/1/10/6;background-color: darksalmon;}
+    .footer {grid-area:10/1/11/6;background-color: lightcoral;}
+/*there is the grid container train above.*/
+
+
+
+    ul li a {text-decoration: none;}
+    ul {margin: 0;padding: 0;list-style-type: none;}
+    .menu {text-align: center;}
+    .menu li {position:relative;white-space: nowrap;}
+    .menu li ul {float: left;}/*如果對象在第一層則不置中*/
+    .menu a {display:inline-block;padding: 0 30px;background-color: dodgerblue;color: #333333;text-decoration: none;height: 40px;}
+    .menu a:hover {background-color: #cdbba7;color: #ffffff;color: #333333;}
+    .menu li:hover > a {background-color: #cdbba7;color: #ffffff;}
+    .menu ul {border: #f7e8dd 1px solid;position: absolute;z-index: 99;left: -1px;top: 100%;min-width: 150px;}/*讓選單不佔位，point*/
+    .menu ul li {border-bottom: #f7e8dd 1px solid;}
+    .menu ul li:last-child {border-bottom: none;}
+    .menu ul ul {z-index: 999;top: 0;left: 90%;}/*第三層右移，point*/
+    .menu ul {left: 99999px;opacity: 0;-webkit-transition: opacity 0.6s;transition: opacity 0.6s;}/*選單放在可視範圍外(經測試，放在可視範圍外可以不用)*/
+    .menu li:hover > ul {opacity: 1;transition: opacity 0.6s;left: -1px;border-right: 5px;}/*滑鼠停留顯現*/
+    .menu li:hover > ul ul {left: -99999px;}/*第三層選單放在可視範圍外*/
+    .menu ul li:hover > ul {left:90%;}/*滑鼠在第二層選單停留時顯現*/
+    .menu li {display: block;align-content: center;} 
+/*there is the collapse nav training*/
+    img {object-fit:scale-down;}
+
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+        <h1>Header</h1>
+    </div>
+    <div class="theme">
+        <h1>Theme</h1>
+    </div>
+    <div class="sidebar">
+            <i class="demo-icon icon-spin1 animate-spin"></i><h1>Sidebar1</h1>
+        <ul class="menu">
+            <li><a href="https://zh.wikipedia.org/zh-tw/%E5%93%88%E5%88%A9%C2%B7%E6%B3%A2%E7%89%B9" target="_blank" alt="HarryPotter"><h2>link1</h2></a></li>
+            <li><a href="#"><h2>link2</h2></a>
+                <ul>
+                    <li><a href="#">link2-1</a></li>
+                    <li><a href="#">link2-2</a></li>
+                    <li><a href="#">link2-3</a></li>
+                    <li><a href="#">link2-4</a>
+                        <ul>
+                            <li><a href="#">link2-4-1</a></li>
+                            <li><a href="#">link2-4-2</a></li>
+                            <li><a href="#">link2-4-3</a></li>
+                            <li><a href="#">link2-4-4</a></li>
+                        </ul>
+                    </li>
+                </ul> 
+            </li>
+            <li><a href="#"><h2>link3</h2></a></li>
+            <li><a href="#"><h2>link4</h2></a></li>
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <h1>Sidebar2</h1>
+        <ul>
+            <li><h2>link1</h2></li>
+            <li><h2>link2</h2></li>
+            <li><h2>link3</h2></li>
+            <li><h2>link4</h2></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Content</h1>
+    </div>
+    <div class="image">
+        <h1>Images</h1>
+        
+    </div>
+    <div class="post">
+        <h1>Post</h1>
+    </div>
+    <div class="footer">
+        <h1>Footer</h1>
+        
+    </div>
+    </div>
+    
+</body>
+</html>
